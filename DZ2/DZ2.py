@@ -25,4 +25,5 @@ print(pair_elements.upper())
 revers = string[-1::-1]
 print(revers.upper())
 
+#Пшеничний Дмитро
 
