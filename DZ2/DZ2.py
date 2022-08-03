@@ -15,11 +15,11 @@ from operator import index
 
 string = (input("Enter the string:"))
 
-print(string.upper())
+print(string)
 
 #only pair elements
 pair_elements = string[0::2]
-print(pair_elements.upper())
+print(pair_elements)
 
 #revers
 revers = string[-1::-1]
