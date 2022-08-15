@@ -17,6 +17,19 @@
 #len = int(input("Enter the dict length"))
 #make_dict(len)
 
+from random import randint
+
+
 old_dict = {1: 'dr', '5':'34', '-65':"bc", None: 0.76, 102: "1323BB"}
 new_dict = {value: key for key, value in old_dict.items()}
 print(new_dict)
+
+def gen_dict(length):
+    
+    d ={}
+    for i in range(length):
+        d[randint(1,100)] = randint(1, 100)
+    print(d)
+
+a  = int(input("a: "))
+gen_dict(a)
