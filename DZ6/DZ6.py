@@ -5,12 +5,13 @@
 from random import randint
 
 
-def game(value):
+def game():
     random_value = randint(1, 100)
     print(f"Random value: {random_value}")
     while True:
+        value = input("Enter the value: ")
         if value is None or value.isalpha():
-            value = input("Enter the valuE:")
+            continue
            
         elif int(value) > random_value:
             print("You so close (your value > hidden value) ", "Try again", sep = "\n") 
@@ -24,5 +25,5 @@ def game(value):
     
     
 
-value = input("Enter the value: ")
-game(value)
+#value = input("Enter the value: ")
+game()
