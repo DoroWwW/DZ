@@ -30,7 +30,7 @@ while True:
     name = input("Enter your name: ").title()
     age = input("Enter your age: ")
 
-    if  age.isalpha() or int(age) <= 0 or name.isdigit():
+    if  age.isalpha() or int(age) <= 0 or not name.isalpha():
         print(">>Incorrect input<<", "   >Try again<", sep = "\n" )
         continue
     elif int(age)<10: 
