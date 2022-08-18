@@ -21,13 +21,11 @@ def list_gen():
 def same_elements(new_list):
     same_e = {}
     for i in new_list:
-        quantity = 0
-        for j in new_list:
-            if i == j:
-                quantity +=1
-            
-                same_e[i] = quantity
-            
+        if same_e.get(i):
+            same_e[i] += 1
+        else: 
+            same_e[i] = 1
+
     return same_e    
 
 
