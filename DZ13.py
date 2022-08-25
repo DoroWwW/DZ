@@ -31,3 +31,63 @@
 -.777 → Вы ввели отрицательное дробное число: -0.777
 
 """
+
+
+
+
+
+
+def value_analysis(value):
+    def check_float(value):
+        if value.find(".",0) != -1 or value.find(",",0) != -1 : 
+                return f"{fractional}"
+        else:
+            return f"{integer}"
+
+    def replace(value):
+        a = "1010001000100010010111001011"
+        b = "1010001000111111001011100101"
+        if  value.find(".",0) != -1: 
+            value = value.replace(".", a,1)
+        elif value.find(",",0) != -1:
+            value = value.replace(",", a,1)
+        if value[0] == "-":
+            value = value.replace("-", b,1)
+        return value
+    def unreplace(value):
+        a = "1010001000100010010111001011"
+        b = "1010001000111111001011100101"
+        if  value.find(a, 0) != -1: 
+            value = value.replace(a,"." ,1)
+        elif value.find(a, 0) != -1:
+            value = value.replace(a, ",",1)
+        if value.find(b, 0) != -1:
+            value = value.replace(b, "-",1)
+        return value
+    minus = "отрицательное"
+    plus = "положительное"
+    integer = "целое"
+    fractional = "дробное"
+    value = replace(value)
+    if not value.isdigit() or value =="":
+        return  f"inc input{unreplace(value)}"
+    else:
+        value = unreplace(value)
+        if value[0] == "-":
+                check_float(value)
+                return f"{minus},{check_float(value)},{value}"
+        else:
+            check_float(value)
+            return f"{plus},{check_float(value)},{value}"
+
+while True:
+    users_step = input("""Enter the value:", "Stop the program("выход", "exit", "quit", "e", "q")""").lower()
+    if users_step in ("выход", "exit", "quit", "e", "q"):
+        break
+    else:
+        print(value_analysis(users_step))
+
+
+
+    
+
