@@ -5,8 +5,9 @@
 
 
 inputdata = ['Страна', 'шалаш', 'Летел', 'вертолёт', 'УЧУ', 'мэм', 'язык']
-
+print(inputdata)
 
 data_polindrom = list(filter(lambda x: x.lower() == x [::-1].lower(), inputdata))
 
+print(inputdata)
 print(data_polindrom)
