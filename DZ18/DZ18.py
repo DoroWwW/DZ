@@ -4,6 +4,13 @@
 
 К заданию прикреплён пример как должно выглядеть содержания итогового файла.
 
+
+
+
+Внимательно прочитайте задание и посмотрите прикреплённую к нему картинку. 
+Данные в таблице необходимо перевернуть: данные про каждого человека необходимо
+читать не слева-направо, а сверху-вниз.
+
 """
 from random import randint
 import pandas as pd
@@ -47,13 +54,15 @@ with open("data_name_number.csv",newline="") as csv_file:
     print(type(xlsx_file))
     sheet.insert_cols(1)
     
+    
     for row in xlsx_file:
         sheet.append(row)
     sheet.delete_cols(3)
     sheet["C2"] = "User Id"
     create_add_col(3,3,id_list)
     create_add_col(3,4,user_pers)
-
+   
+    
    
    
 
@@ -71,3 +80,10 @@ book.save("data_name.xlsx")
 
 df = pd.read_excel('data_name.xlsx')
 df.T.to_excel('data_name.xlsx', index=False)
+book = openpyxl.load_workbook('data_name.xlsx')
+sheet = book.active
+sheet.move_range("B5:F5", rows=-4)
+sheet["A1"]=None
+book.save('data_name.xlsx')
+
+
