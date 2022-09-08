@@ -40,6 +40,7 @@ def unwrapper(records: List) -> None:
     print(f"sum: {sum}")
 def main():
     
+    
     records = execute_query("SELECT UnitPrice, Quantity FROM invoice_items")
     unwrapper(records)
     
