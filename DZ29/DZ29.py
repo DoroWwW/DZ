@@ -6,6 +6,10 @@
 
 Результат выполнения функции: "Alex 2", т.е. имя и кол-во его вхождений.
 
+
+
+((Решение рабочее, но нарушена логика. 
+Функция "развертки" выполняет несвойственное ей действие подсчета.))
 """
 
 
@@ -30,28 +34,33 @@ def execute_query(query_sql: str) -> List:
     return result
 
 
-def unwrapper(records: List) -> None:
+def calc_entries(records: List) -> dict:
     '''
-    Функция для вывода результата выполнения запроса
-    :param records: список ответа БД
+    Функция для подсчёта количества вхождений имён
     '''
-    quantity_name = {} 
+    names_quantity = {} 
     for rec in records: 
-        
-              
-        if rec[0] in quantity_name:
-            quantity_name[rec[0]] += 1
+        if rec[0] in names_quantity:
+            names_quantity[rec[0]] += 1
         else:
-            quantity_name[rec[0]] = 1
-    for i in quantity_name.items():
-        print(i[0],i[1])
+            names_quantity[rec[0]] = 1
+    
+    return names_quantity
+
+
+def print_entries(names_quantity: dict) -> None:
+    '''
+    Функция для вывода имён и количества их вхождений
+    '''
+    for record in names_quantity.items():
+        print(f"Name: {record[0]} | Entries: {record[1]}")
 
 
 def main():
-    
-    
+
     records = execute_query("SELECT FirstName FROM customers")
-    unwrapper(records)
+    names_quantity = calc_entries(records)
+    print_entries(names_quantity)
     
 
 main()
