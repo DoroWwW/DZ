@@ -47,11 +47,13 @@ class Circle(Point):
         return Circle(radius, x, y)
     
     def __sub__(self, other):
-        result = abs(self.radius - other.radius)
-        if result == 0:
-            return Point()
+        radius = abs(self.radius - other.radius)
+        x = self.x - other.x
+        y = self.y - other.y
+        if radius == 0: 
+            return Point(x,y)
         else:
-            return result
+            return Circle(radius, x, y)
 
     def edge_distance_from_origin(self):
         return abs(self.distance_from_origin() - self.radius)
