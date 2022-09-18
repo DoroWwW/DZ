@@ -7,6 +7,11 @@
 Создать своё исключение, к примеру возведение в отрицательную степень.
 """
 
+class NULLException(Exception):
+    def __init__(self):
+        super().__init__('Zero division. My custom exception')
+
+
 class Calculator(int):
     
     
@@ -19,6 +24,13 @@ class Calculator(int):
         else:   
             self = int(self) ** 0.5
             print(self)
+    def __pow__(self,other):
+        try:
+            if other < 0:
+                raise NULLException
+            return int(self) ** int(other)
+        except NULLException as err:
+            return err
                    
     
 
