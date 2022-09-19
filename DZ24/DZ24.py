@@ -6,9 +6,9 @@
 
 def g_progression(i):
 
-    while i >0:
-        i -=1
-        yield i**3
+    for value in range(i):
+        yield 3**value
+        value += 1
         
 
 enter = int(input("Quantity of cubes: "))
