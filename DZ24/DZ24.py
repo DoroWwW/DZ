@@ -4,14 +4,19 @@
 
 
 
-def g_progression(i):
 
-    for value in range(i):
-        yield 3**value
-        value += 1
-        
 
-enter = int(input("Quantity of cubes: "))
 
-for i in g_progression(enter):
-    print(i)
+def g_progression(start, step, size):
+    count = 1
+    while count <= size:
+        yield start
+        start *= step
+        count += 1
+
+start = int(input("Start value: "))
+step =int(input("Step of prog: "))
+size = int(input("Quantity of prog: "))
+
+for ele in g_progression(start, step, size):
+    print(ele)
