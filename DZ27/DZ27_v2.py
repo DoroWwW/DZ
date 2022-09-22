@@ -153,6 +153,11 @@ def search():
         if request is not None and request != "":
             request = request.lower()
             for row in sheet_obj.rows:
+                if row[1].value is None:
+                    row[1].value = ""
+                if row[2].value is None:
+                    row[2].value = ""
+
                 if (
                     request in row[0].value.lower()
                     or request in row[1].value.lower()
