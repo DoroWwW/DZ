@@ -90,6 +90,9 @@ def add():
                     birth_date = birth_date.split("/")
                 elif birth_date.count("-") == 2:
                     birth_date = birth_date.split("/")
+                else:
+                    print("Inc input!")
+                    continue
                 try:
                     birth_day = int(birth_date[0])
                     birth_month = int(birth_date[1])
@@ -123,6 +126,9 @@ def add():
                     death_date = death_date.split("/")
                 elif death_date.count("-") == 2:
                     death_date = death_date.split("/")
+                else:
+                    print("Inc input!")
+                    continue
                 try:
                     death_day = int(death_date[0])
                     death_month = int(death_date[1])
